@@ -2,7 +2,7 @@ package edu.cnm.deepdive;
 
 /**
  * Instances this class represents single cards in a deck of standard playing
- * cards. These instances are imutable once initalized, the rank and suit of a car cannot be changed
+ * cards. These instances are immutable once initialized, the rank and suit of a card cannot be changed.
  *
  *
  * @author Lance Zotigh &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
@@ -17,7 +17,7 @@ public class Card {
    * initializes the <code>Card</code> instance with the specified {@link Suit} and {@link Rank}
    *
    * @param rank card rank (A, 2, &hellip; K).
-   * @param suit cards suit uit (Clubs, Diamonds, Hearts, Spades).
+   * @param suit cards suit uit (♣, ♡, ♢, ♠).
    */
   public Card(Rank rank, Suit suit) {
     this.rank = rank;
