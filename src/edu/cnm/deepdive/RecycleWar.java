@@ -44,7 +44,7 @@ public class RecycleWar extends SimpleWar{
         try {
           card2 = pile2.remove(0);
         } catch (IndexOutOfBoundsException e) {
-          //Do nothing untill we see card2
+          //Do nothing until we see card2
         }
           if (card2 == null) {
             if (card1 != null) {
@@ -93,15 +93,15 @@ public class RecycleWar extends SimpleWar{
       war.setTally1(war.pile1.size());
       war.setTally1(war.pile2.size());
       System.out.printf("Player 1: %d. Player 2: %d.%n", war.getTally1(), war.getTally2());
-      if(war.getTally1() > war.getTally2());
-      System.out.println("Player 1 wins!");
-    } else if(war.getTally1() < war.getTally2()){
-      System.out.println("Player 2 wins!");
-    } else {
-      System.out.println("Tie!");
+      if (war.getTally1() > war.getTally2()) {
+        System.out.println("Player 1 wins!");
+      } else if (war.getTally1() < war.getTally2()) {
+        System.out.println("Player 2 wins!");
+      } else {
+        System.out.println("Tie!");
+      }
     }
   }
-
   private static class GamOverException extends RuntimeException {
 
   }
