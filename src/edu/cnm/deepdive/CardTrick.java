@@ -43,49 +43,51 @@ public class CardTrick {
     } catch (DeckEmptyException e) {
       //do nothing
     }
-
   }
 
   public void swapCards() {
-   int count = rng.nextInt(Math.min(redPile.size(), blackPile.size()) +1);
-   List<Card> redExtract = new LinkedList<>();
-   List<Card> blackExtract = new LinkedList<>();
-  for (int i = 0; i < count; i++) {
-    redExtract.add(redPile.remove(0));
-    blackExtract.add(blackPile.remove(0));
-    System.out.printf("Swapping %d cards between red and black piles.%n", count);
-  }
+    int count = rng.nextInt(Math.min(redPile.size(), blackPile.size()) + 1);
+    List<Card> redExtract = new LinkedList<>();
+    List<Card> blackExtract = new LinkedList<>();
+    for (int i = 0; i < count; i++) {
+      redExtract.add(redPile.remove(0));
+      blackExtract.add(blackPile.remove(0));
+      System.out.printf("Swapping %d cards between red and black piles.%n", count);
+    }
     System.out.printf("Black extract: %s%n", blackExtract);
-  redPile.addAll(blackExtract);
-  blackPile.addAll(redExtract);
-
-  public void countAndReport() {
-    int redCount = 0;
-    int blackCount = 0;
-    for (Card c :redPile) {
-      if (c.getSuit().getColor() == Color.Red) {
-        redCount++;
-      }
-    }
-    for (Card c : blackPile) {
-      if (c.getSuit().getColor() == Color.Black) {
-        blackCount++;
-      }
-    }
-    Collections.sort(redPile);
-    Collections.sort(blackPile);
-    System.out.printf("Black pile: %s%n", blackPile);
-    System.out.printf("Red pile: %s%n", redPile);
-    System.out.printf("Black: %d. Red: %d %n", blackCount, redCount);
-
+    System.out.printf("");
+    redPile.addAll(blackExtract);
+    blackPile.addAll(redExtract);
   }
 
-  public static void main(String[] args) {
-    CardTrick trick = new CardTrick();
-    Deck deck = trick.prepareDeck();
-    trick.splitDeck(deck);
-    trick.swapCards();
-    trick.countAndReport();
+    public void countAndReport() {
+      int redCount = 0;
+      int blackCount = 0;
+      for (Card c : redPile) {
+        if (c.getSuit().getColor() == Color.Red) {
+          redCount++;
+        }
+      }
+      for (Card c : blackPile) {
+        if (c.getSuit().getColor() == Color.Black) {
+          blackCount++;
+        }
+      }
+      Collections.sort(redPile);
+      Collections.sort(blackPile);
+      System.out.printf("Black pile: %s%n", blackPile);
+      System.out.printf("Red pile: %s%n", redPile);
+      System.out.printf("Black: %d. Red: %d %n", blackCount, redCount);
+
+    }
+
+    public static void main(String[]args){
+      CardTrick trick = new CardTrick();
+      Deck deck = trick.prepareDeck();
+      trick.splitDeck(deck);
+      trick.swapCards();
+      trick.countAndReport();
+    }
   }
 
-}
+
