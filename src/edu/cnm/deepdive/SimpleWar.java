@@ -95,7 +95,7 @@ public class SimpleWar {
     }
   }
 
-  private static class Referree implements Comparator<Card> {
+  protected static class Referree implements Comparator<Card> {
 
     @Override
     public int compare(Card card1, Card card2) {

@@ -8,7 +8,7 @@ package edu.cnm.deepdive;
  * @author Lance Zotigh &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
  * @version 1.0
  */
-public class Card {
+public class Card implements Comparable<Card> {
 
   private final Rank rank;
   private final Suit suit;
@@ -37,4 +37,12 @@ public class Card {
     return String.format("%2s %s", rank, suit);
   }
 
+  @Override
+  public int compareTo(Card other) {
+    int comparison = this.getSuit().compareTo(other.getSuit());
+    if(comparison == 0) {
+      comparison = getRank().compareTo(other.getRank());
+    }
+    return comparison;
+  }
 }

@@ -10,19 +10,31 @@ package edu.cnm.deepdive;
  */
 public enum Suit {
 
-  CLUBS("\u2663"),
-  DIAMONDS("\u2661"),
-  HEARTS("\u2662"),
-  SPADES("\u2660");
+  CLUBS("\u2663", Color.Black),
+  DIAMONDS("\u2661", Color.Red),
+  HEARTS("\u2662", Color.Red),
+  SPADES("\u2660", Color.Black);
 
   private final String symbol;
+  private final Color color;
 
-  Suit(String symbol) {
+  Suit(String symbol, Color color) {
     this.symbol = symbol;
+    this.color = color;
+  }
+
+  public Color getColor() {
+    return color;
   }
 
   @Override
   public String toString() {
     return symbol;
   }
+
+  public enum Color {
+    Red, Black;
+  }
+
 }
+
